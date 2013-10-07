@@ -11,31 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007113129) do
+ActiveRecord::Schema.define(version: 20131007152649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "makers", force: true do |t|
-    t.string "first_name",      limit: 50
-    t.string "last_name",       limit: 50
-    t.string "email",           limit: 50
-    t.string "username",        limit: 50
-    t.text   "password_digest"
-  end
-
-  add_index "makers", ["email"], name: "unique_makers_email", unique: true, using: :btree
-  add_index "makers", ["username"], name: "unique_makers_username", unique: true, using: :btree
-
-  create_table "peeps", force: true do |t|
-    t.string   "post",       limit: 140
-    t.datetime "created_at"
-    t.integer  "maker_id"
-  end
-
   create_table "quizzes", force: true do |t|
     t.string  "title"
     t.integer "pass_mark"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
