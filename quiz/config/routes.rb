@@ -10,7 +10,11 @@ QuizApp::Application.routes.draw do
 
   resources :users
 
+  root 'quizzes#index'
+
   get '/signup' => 'users#new'
+
+  post '/signup' => 'users#create' 
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
