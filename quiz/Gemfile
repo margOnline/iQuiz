@@ -30,9 +30,12 @@ gem 'haml'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~>2.0'
   gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :doc do
