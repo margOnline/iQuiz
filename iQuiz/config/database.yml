@@ -17,10 +17,11 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: iQuiz_development
+  database: iquiz_development
   pool: 5
-  username: iQuiz
+  username: 
   password:
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -46,15 +47,16 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: iQuiz_test
+  database: iquiz_test
   pool: 5
-  username: iQuiz
+  username: 
   password:
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: iQuiz_production
+  database: iquiz_production
   pool: 5
   username: iQuiz
   password:

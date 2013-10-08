@@ -1,0 +1,2 @@
+module IquizzesHelper
+end

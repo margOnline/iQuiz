@@ -1,0 +1,2 @@
+class IquizzesController < ApplicationController
+end
