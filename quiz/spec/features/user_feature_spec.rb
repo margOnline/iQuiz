@@ -1,42 +1,45 @@
 require 'spec_helper'
 
 describe 'user sign up page' do
+  
   it 'should display a form' do
-     visit '/signup'
-    expect(page).to have_content 'sign up'
+     visit '/users/sign_up'
+    expect(page).to have_content 'Sign up'
   end 
 
   it 'should display a email field' do 
-    visit '/signup'
-    expect(page).to have_field 'email'
+    visit '/users/sign_up'
+    expect(page).to have_field 'user_email'
   end
 
   it 'should display a submit button' do
-    visit '/signup'
-    expect(page).to have_button 'sign up'
+    visit '/users/sign_up'
+    expect(page).to have_button 'Sign up'
   end
 
   context 'user signs up' do
     it 'should create a new user' do
-      expect(User.count).to eq 0
-      visit '/signup'
-      add_user("bob@bob.com")
-      expect(User.count).to eq 1
+      visit '/users/sign_up'
+      add_user('usersignup@example.com')
+      expect(User.last.email).to eq 'usersignup@example.com'
     end
 
     it 'and redirect to the home page' do
-      visit '/signup'
-      add_user("bob@bob.com")
-      expect(User.count).to eq 1
+      visit '/users/sign_up'
+      user = FactoryGirl.build(:user)
+      add_user(user.email)
+      expect(page).to have_content 'Welcome! You have signed up successfully.'
     end
   end
 end
 
 
 def add_user(email)
-  within '#new-user' do
-    fill_in 'email', with: email
-    click_button 'sign up'   
+  within '#sign-up' do
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: 'password'
+    fill_in 'user_password_confirmation', with: 'password'
+    click_button 'Sign up'   
   end 
 end
 
