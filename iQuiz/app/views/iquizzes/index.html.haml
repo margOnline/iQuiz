@@ -1,8 +1,15 @@
 #question-display
-  = @question.query 
+ 
+  
+  = form_for :question, url: {action: 'index'} do |f|
+    
+    %h1= @question.query + '?'
 
-  %a{href: '#', id: 'true'} 
-    true 
-  %a{href: '#', id: 'false'} 
-    false 
+    %button{id: true}
+      True
+    %button{id: false} 
+      False
+   
+
+
 

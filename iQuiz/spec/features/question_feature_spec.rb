@@ -19,9 +19,26 @@ describe 'iquizzes page' do
   it 'should display a false choice' do
     question
     visit '/iquizzes'
-    expect(page).to have_css('#false')
-    
+    expect(page).to have_css('#false')  
   end
+
+  context 'when an answer is submitted'
+    it 'displays correct' do
+      question
+      visit '/iquizzes'
+      # click_link('true')
+      find('#false').click
+      expect(page).to have_content 'Correct!'
+    end
+
+    it 'displays incorrect' do
+      question
+      visit '/iquizzes'
+      find('#true').click
+      expect(page).to have_content 'Incorrect!'
+    end
+
+    it 'converts response to boolean equivalent'
 
 end
 
