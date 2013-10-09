@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131009142332) do
+ActiveRecord::Schema.define(version: 20131009144454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20131009142332) do
     t.string  "title"
     t.integer "pass_mark"
   end
+
+  create_table "responses", force: true do |t|
+    t.integer  "user_id_id"
+    t.decimal  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["user_id_id"], name: "index_responses_on_user_id_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
