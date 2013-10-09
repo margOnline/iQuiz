@@ -12,6 +12,4 @@ describe 'question' do
    expect(question.solution).to be_false
  end
 
-
-
 end
