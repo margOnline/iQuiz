@@ -23,4 +23,9 @@ FactoryGirl.define do
     end
   end
 
+  factory :response do 
+    user_id 1
+    score 10
+  end
+
 end
