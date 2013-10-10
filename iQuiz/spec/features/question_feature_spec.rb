@@ -13,13 +13,13 @@ describe 'home page' do
   it 'should display a true choice' do
     question
     visit '/'
-    expect(page).to have_css('#true')
+    expect(page).to have_selector("input[type='submit'][value='true']")
   end
 
   it 'should display a false choice' do
     question
     visit '/'
-    expect(page).to have_css('#false')  
+    expect(page).to have_selector("input[type='submit'][value='false']")
   end
 
   context 'when an answer is submitted'
@@ -27,18 +27,15 @@ describe 'home page' do
       question
       visit '/'
       # click_link('true')
-      find('#false').click
-      expect(page).to have_content 'Correct!'
+      find("input[type='submit'][value='false']").click
+      expect(page).to have_content 'Correct'
     end
 
-    xit 'displays incorrect' do
+    it 'displays incorrect' do
       question
       visit '/'
-      find('#true').click
-      expect(page).to have_content 'Incorrect!'
-    end
-
-    xit 'logs the response' do
+      find("input[type='submit'][value='true']").click
+      expect(page).to have_content 'Incorrect'
     end
 
 end

@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :answers
   has_one :response
+
+  def update_score
+    
+  end
 end
