@@ -1,0 +1,11 @@
+#question-display
+ 
+  %h1= @question.query + '?'
+  = form_for :answer, url: {action: 'create', controller: 'answer'} do |f|
+    = f.hidden_field('question_id', value: @question.id)
+    = f.submit "true", name: "answer[reply]"
+    = f.submit "false", name: "answer[reply]"
+      
+
+/ <input name="answer[reply]" value="true">
+/ <input name="answer[question_id]" value=@question.id type='hidden'>

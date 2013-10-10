@@ -28,4 +28,8 @@ FactoryGirl.define do
     score 10
   end
 
+  factory :image do
+    filename 'chicago.jpg'
+  end
+
 end
