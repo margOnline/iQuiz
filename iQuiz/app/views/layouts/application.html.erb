@@ -9,28 +9,16 @@
 
 </head>
 <body>
-   <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-        
-        </div>
-      </nav>
-    </header>
-    <main role="main">
+  <%= render 'layouts/header' %>
+     
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="span12">
-
-              
-             
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          </footer>
-        </div>
+        <%= yield %>
+        <div class="push"></div>
       </div>
-    </main>
+
+    
+      <%= render 'layouts/footer' %>
+    
+
 </body>
 </html>
